@@ -2,82 +2,165 @@
 <html lang="es">
 <head>
 <meta name="google-site-verification" content="_IeQf7v57YGR5myGYl0AeEbzeykjoGOGt0AapXUrQPg" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConversorDeLetra – Generador de Letras Online</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f9fb;
-            padding: 40px;
-            text-align: center;
-            color: #333;
-        }
-        .container {
-            max-width: 700px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-        }
-        input, textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-bottom: 18px;
-            font-size: 16px;
-        }
-        .result {
-            background: #f1f1f6;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 20px;
-            margin-bottom: 25px;
-        }
-        a.main-link {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 18px;
-            text-decoration: none;
-            color: #0070ff;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Letras Online – ConversorDeLetra.com</title>
+
+<style>
+    body {
+        font-family: 'Inter', Arial, sans-serif;
+        background: linear-gradient(120deg, #6a11cb, #2575fc);
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+    }
+
+    .wrapper {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 45px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    p.intro {
+        text-align: center;
+        max-width: 700px;
+        margin: auto;
+        font-size: 18px;
+        opacity: 0.95;
+    }
+
+    .glass {
+        margin-top: 40px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(18px);
+        border-radius: 18px;
+        padding: 30px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    input {
+        width: 100%;
+        padding: 18px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .output-box {
+        padding: 20px;
+        background: rgba(0,0,0,0.25);
+        border-radius: 10px;
+        font-size: 24px;
+        min-height: 60px;
+        letter-spacing: 1.2px;
+        transition: 0.3s;
+    }
+
+    a.main-link {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 22px;
+        background: #ffffff;
+        color: #2575fc;
+        font-size: 18px;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    a.main-link:hover {
+        transform: scale(1.05);
+        background: #e8e8e8;
+    }
+
+    h2 {
+        margin-top: 45px;
+        font-size: 32px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    p.section {
+        font-size: 18px;
+        opacity: 0.95;
+        text-align: center;
+        max-width: 820px;
+        margin: auto;
+    }
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>ConversorDeLetra.com</h1>
-    <p>Convierte texto normal en letras bonitas, estilos Unicode y fuentes creativas.  
-    Visita la herramienta completa aquí:</p>
+<div class="wrapper">
 
-    <a class="main-link" href="https://conversordeLetra.com" target="_blank">➡ Ir a ConversorDeLetra.com</a>
+    <h1>Generador de Letras Online</h1>
+    <p class="intro">
+        Convierte texto normal en estilos increíbles, Unicode y letras aesthetic.
+        Esta es una versión de demostración creada especialmente para GitHub Pages.
+    </p>
 
-    <h2>Generador de Letras – Demo</h2>
-    <input id="inputText" placeholder="Escribe algo aquí..." />
-    <div class="result" id="outputText">Tu texto convertido aparecerá aquí…</div>
+    <center>
+        <a class="main-link" href="https://conversordeletra.com" target="_blank">
+            Visitar ConversorDeLetra.com
+        </a>
+    </center>
 
-    <script>
-        const unicodeMap = {
-            a: "𝒶", b: "𝒷", c: "𝒸", d: "𝒹", e: "𝑒", f: "𝒻", g: "𝑔", h: "𝒽",
-            i: "𝒾", j: "𝒿", k: "𝓀", l: "𝓁", m: "𝓂", n: "𝓃", o: "𝑜", p: "𝓅",
-            q: "𝓆", r: "𝓇", s: "𝓈", t: "𝓉", u: "𝓊", v: "𝓋", w: "𝓌", x: "𝓍",
-            y: "𝓎", z: "𝓏"
-        };
+    <!-- TOOL CARD -->
+    <div class="glass">
+        <h2>Prueba el Conversor en Vivo</h2>
 
-        document.getElementById("inputText").addEventListener("input", function () {
-            const text = this.value.toLowerCase();
-            let converted = "";
-            for (let char of text) {
-                converted += unicodeMap[char] || char;
-            }
-            document.getElementById("outputText").innerText = converted;
-        });
-    </script>
+        <input id="inputBox" placeholder="Escribe tu texto aquí..." />
+
+        <div class="output-box" id="outputBox">
+            Tu texto convertido aparecerá aquí…
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <h2>¿Qué es el Generador de Letras?</h2>
+    <p class="section">
+        El generador de letras online convierte texto simple en fuentes creativas utilizando Unicode.
+        Puedes generar letras bonitas, cursivas, pequeñas, aesthetic, negras, decoradas y muchos otros estilos
+        que funcionan perfectamente en Instagram, TikTok, WhatsApp, Facebook, Discord y videojuegos.
+    </p>
+
+    <h2>¿Para Qué Sirve ConversorDeLetra.com?</h2>
+    <p class="section">
+        Esta herramienta es ideal para crear nombres únicos, biografías profesionales, estilos visuales para redes
+        sociales y textos llamativos para juegos. No necesitas instalar nada: solo escribe, copia y pega.
+    </p>
 
 </div>
+
+<script>
+    const unicodeFancy = {
+        a:"𝒶",b:"𝒷",c:"𝒸",d:"𝒹",e:"𝑒",f:"𝒻",g:"𝑔",h:"𝒽",i:"𝒾",j:"𝒿",
+        k:"𝓀",l:"𝓁",m:"𝓂",n:"𝓃",o:"𝑜",p:"𝓅",q:"𝓆",r:"𝓇",s:"𝓈",t:"𝓉",
+        u:"𝓊",v:"𝓋",w:"𝓌",x:"𝓍",y:"𝓎",z:"𝓏"
+    };
+
+    document.getElementById("inputBox").addEventListener("input", () => {
+        const text = document.getElementById("inputBox").value.toLowerCase();
+        let converted = "";
+
+        for (let c of text) {
+            converted += unicodeFancy[c] || c;
+        }
+
+        document.getElementById("outputBox").innerHTML = converted;
+    });
+</script>
 
 </body>
 </html>
