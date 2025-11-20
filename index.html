@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConversorDeLetra – Generador de Letras Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fb;
+            padding: 40px;
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+        .result {
+            background: #f1f1f6;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        a.main-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #0070ff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ConversorDeLetra.com</h1>
+    <p>Convierte texto normal en letras bonitas, estilos Unicode y fuentes creativas.  
+    Visita la herramienta completa aquí:</p>
+
+    <a class="main-link" href="https://conversordeLetra.com" target="_blank">➡ Ir a ConversorDeLetra.com</a>
+
+    <h2>Generador de Letras – Demo</h2>
+    <input id="inputText" placeholder="Escribe algo aquí..." />
+    <div class="result" id="outputText">Tu texto convertido aparecerá aquí…</div>
+
+    <script>
+        const unicodeMap = {
+            a: "𝒶", b: "𝒷", c: "𝒸", d: "𝒹", e: "𝑒", f: "𝒻", g: "𝑔", h: "𝒽",
+            i: "𝒾", j: "𝒿", k: "𝓀", l: "𝓁", m: "𝓂", n: "𝓃", o: "𝑜", p: "𝓅",
+            q: "𝓆", r: "𝓇", s: "𝓈", t: "𝓉", u: "𝓊", v: "𝓋", w: "𝓌", x: "𝓍",
+            y: "𝓎", z: "𝓏"
+        };
+
+        document.getElementById("inputText").addEventListener("input", function () {
+            const text = this.value.toLowerCase();
+            let converted = "";
+            for (let char of text) {
+                converted += unicodeMap[char] || char;
+            }
+            document.getElementById("outputText").innerText = converted;
+        });
+    </script>
+
+</div>
+
+</body>
+</html>
